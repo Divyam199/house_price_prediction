@@ -43,32 +43,25 @@ bathrooms, location, etc.)?
 - Converted date fields to proper datetime format
 
 ## ✅ Data Quality
-*(Fill in after cleaning: missing values found & handled, duplicates 
-removed, data types corrected)*
+
 
 ## 📈 Charts
-*(Add visualizations here once created — e.g., price distribution, 
-price vs sqft_living scatter plot, average price by city)*
+
 
 ## 🔑 Key Findings
-*(Fill in with real numbers once analysis is done — e.g., average 
-price, most expensive city, correlation between sqft_living and price)*
+
 
 ## 🤖 Price Predictor (Machine Learning)
 Built a **Linear Regression** model to predict house price based on 
 features such as area, bedrooms, bathrooms, and location.
 
-- **Model:** Linear Regression
-- **Features:** *(list final features used)*
-- **Target:** price
-- **Evaluation Metric(s):** MAE, R² Score
-- **Result:** *(fill in once trained)*
+
 
 ## 💡 Recommendations
-*(Fill in based on findings — e.g., which features most affect price)*
+
 
 ## 🎯 Conclusion
-*(Fill in once the project is complete)*
+
 
 ## 🛠️ Tech Used
 Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
