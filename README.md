@@ -41,6 +41,7 @@ bathrooms, location, etc.)?
   numeric columns
 - Handled missing/non-standard values (e.g., `yr_renovated`)
 - Converted date fields to proper datetime format
+- Kept only city for address column.
 
 ## ✅ Data Quality
 
