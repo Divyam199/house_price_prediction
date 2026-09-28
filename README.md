@@ -39,9 +39,10 @@ bathrooms, location, etc.)?
 - Extracted `bedrooms` and `bathrooms` from an embedded text string
 - Split combined `sqft_living`/`sqft_lot` values into separate 
   numeric columns
-- Handled missing/non-standard values (e.g., `yr_renovated`)
+- Dropped `yr_renovated`: most values were missing and it was impossible to tell "never renovated" from "value not recorded"
 - Converted date fields to proper datetime format
 - Kept only city for address column.
+- Removed rows with price = 0,bedrooms = 0, bathrooms = 0 and 2 extreme price outliers inconsistent with house size.
 
 ## ✅ Data Quality
 
