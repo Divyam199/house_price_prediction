@@ -43,15 +43,47 @@ bathrooms, location, etc.)?
 - Converted date fields to proper datetime format
 - Kept only city for address column.
 - Removed rows with price = 0,bedrooms = 0, bathrooms = 0 and 2 extreme price outliers inconsistent with house size.
+- Recalculated `sqft_living` as `sqft_above + sqft_basement` to fix 2 rows where the originally parsed value was inconsistent with its 
+  components and dropped `sqft_above, sqft_basement`.
 
 ## ✅ Data Quality
 
 
+
 ## 📈 Charts
 
+![House Price Dashboard](images/house_dashboard.png)
 
 ## 🔑 Key Findings
 
+- House prices are right-skewed — most houses fall between roughly 
+  200,000–800,000, with a long tail of expensive outliers reaching up 
+  to 7,062,500. The median (471,000) is a more reliable "typical price" 
+  than the mean (556,052), which is pulled upward by a few very 
+  expensive houses
+- **`sqft_living` is the strongest predictor of price** (correlation 
+  0.71) — larger living area reliably means a higher price, though one 
+  clear outlier (a ~10,000 sqft house at 7,062,500) sits well above 
+  the general trend
+- **Location has a major effect on price** — Bellevue has the highest 
+  average price (~880,000) among the top 10 cities by volume, while 
+  Federal Way, Auburn, and Kent are the most affordable (~300,000), 
+  nearly a 3x gap
+- **Bedrooms show a fairly steady upward trend with price** up to 7 
+  bedrooms, but drop off at 8 — likely due to very few houses having 
+  that many bedrooms rather than a real pricing pattern
+- **Condition has almost no effect on price** (correlation only 0.05) 
+  — a genuinely counter-intuitive finding. Condition 3, 4, and 5 show 
+  very similar price ranges, and even condition 1 (worst) isn't 
+  noticeably cheaper
+- **`yr_built` also barely matters** (correlation 0.02) — how old or 
+  new a house is doesn't meaningfully predict its price in this dataset
+- Other useful predictors from the correlation heatmap: `bathrooms` 
+  (0.53), `view` (0.39), `bedrooms` (0.34) — all moderately linked to 
+  price
+- Some features are correlated with each other, not just with price — 
+  e.g., `bathrooms` and `sqft_living` (0.76) — meaning these features 
+  carry overlapping information rather than fully independent signals
 
 ## 🤖 Price Predictor (Machine Learning)
 Built a **Linear Regression** model to predict house price based on 
