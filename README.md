@@ -48,6 +48,29 @@ bathrooms, location, etc.)?
 
 ## ✅ Data Quality
 
+**Issues found in the raw data:**
+- Nested JSON structure — `area` field contained a dictionary instead 
+  of flat columns
+- Text-encoded values — `rooms` field combined bedrooms and bathrooms 
+  into a single string, with inconsistent word order across rows
+- 248 rows had `price = 0`, an invalid placeholder value
+- 2 extreme price outliers inconsistent with house size/features
+- 2 rows had `sqft_living` that didn't match `sqft_above + sqft_basement`
+- `yr_renovated` was missing for the vast majority of rows, and it was 
+  not possible to reliably distinguish "never renovated" from "value 
+  not recorded" — the column (and a derived flag) was dropped entirely
+- `date` stored as a non-standard string format (`20140502T000000`)
+- 1 duplicate row
+
+**After cleaning:**
+- No missing values remain in any retained column
+- No duplicate rows
+- All columns have correct, consistent data types (numeric fields as 
+  int/float, dates as datetime)
+- `sqft_living` recalculated as `sqft_above + sqft_basement` to 
+  guarantee internal consistency
+- Final dataset: 4,345 rows × 14 columns
+
 
 
 ## 📈 Charts
