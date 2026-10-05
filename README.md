@@ -116,8 +116,33 @@ features such as area, bedrooms, bathrooms, and location.
 
 ## 💡 Recommendations
 
+- `sqft_living` is the single strongest driver of price — any pricing 
+  or valuation tool should weight living area heavily
+- City/location should be a primary factor in pricing decisions, given 
+  the ~3x gap between the cheapest and most expensive cities in this 
+  dataset
+- `condition` and `yr_built` had minimal impact on price here — pricing 
+  strategies shouldn't over-rely on these without further investigation 
+  into why (e.g., renovations may have offset age in older homes)
+- Waterfront and view ratings meaningfully increase price and should be 
+  factored into premium pricing for qualifying properties
 
 ## 🎯 Conclusion
+
+This project cleaned a genuinely messy, nested JSON housing dataset 
+into a usable format, explored it to uncover real patterns (strong 
+price-size relationship, weak price-condition relationship, significant 
+city-based price differences), and built a Linear Regression model that 
+explains 68% of the variation in house prices (R² = 0.68).
+
+Along the way, two potential improvements were tested — removing 
+extreme outliers and dropping weak features (`condition`, `yr_built`, 
+`sqft_lot`) — but neither improved performance on this dataset, so the 
+final model retains the full feature set and all data points. While 
+not a perfect predictor, the model performs reasonably well given the 
+available features, and this project demonstrates a complete, honest 
+data science workflow — testing hypotheses against evidence rather than 
+assuming textbook improvements will always apply.
 
 
 ## 🛠️ Tech Used
